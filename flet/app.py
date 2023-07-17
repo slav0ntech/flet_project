@@ -6,7 +6,7 @@ def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
     txt_number = ft.TextField(
-        value="0", text_align=ft.TextAlign.CENTER, width=100)
+        value="10", text_align=ft.TextAlign.CENTER, width=100)
 
     def minus_click(e):
         txt_number.value = str(int(txt_number.value) - 1)
@@ -29,4 +29,3 @@ def main(page: ft.Page):
 
 
 ft.app(port='8550', target=main, view=ft.AppView.WEB_BROWSER)
-
