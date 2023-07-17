@@ -1,0 +1,33 @@
+version: '3.4'
+services:
+  webserver:
+    image: nginx:alpine
+    container_name: web
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/index.html:/usr/share/nginx/html/index.html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - flet
+    networks:
+      default:
+        ipv4_address: 172.16.2.11
+
+  flet:
+    build: 
+      context: ./flet
+      dockerfile: ./Dockerfile
+    container_name: flet
+    restart: unless-stopped
+    networks:
+      default:
+        ipv4_address: 172.16.2.22
+
+networks:
+  default:
+    name: flet-project
+
