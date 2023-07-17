@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 8550
 
-CMD ["python3", "flat_app.py"]
+CMD ["python3", "app.py"]
